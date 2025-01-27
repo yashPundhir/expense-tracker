@@ -1,9 +1,26 @@
+import {
+	Sheet,
+	SheetContent,
+	SheetDescription,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/components/ui/sheet";
+
 function App() {
 	return (
-		<p className="text-red-400">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
-			distinctio?
-		</p>
+		<Sheet>
+			<SheetTrigger>Open</SheetTrigger>
+			<SheetContent>
+				<SheetHeader>
+					<SheetTitle>Are you absolutely sure?</SheetTitle>
+					<SheetDescription>
+						This action cannot be undone. This will permanently delete your
+						account and remove your data from our servers.
+					</SheetDescription>
+				</SheetHeader>
+			</SheetContent>
+		</Sheet>
 	);
 }
 
