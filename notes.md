@@ -14,3 +14,6 @@ npm install -D tailwindcss@3.4.17 postcss autoprefixer
 ```
 
 then follow the usual steps from the install guide.
+
+- [Shadcn install guide](https://medium.com/@mohammadkaifm/how-to-set-up-vite-react-project-without-typescript-to-use-shadcn-ecc6c1dffce3)
+- [Shadcn install another guide](https://kizito917.hashnode.dev/how-to-setup-shadcnui-in-a-react-application-without-typescript) => `better`
