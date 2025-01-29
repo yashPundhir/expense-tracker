@@ -3,24 +3,104 @@ import { atom } from "jotai";
 export const expenseAtom = atom([
 	{
 		id: 1,
-		expenseCause: "Burger",
+		amount: 45,
+		expenseDescription: "Burger",
 		expenseCategory: "Food",
 		expenseType: "Debit",
+		date: {
+			day: "28",
+			month: "01",
+			year: "2025",
+		},
+		// dateTimestamp: number,
+		// createdAt: string,
+		// updatedAt: string,
+		recurring: false,
+		// frequency: string | null,
+	},
+	{
+		id: 2,
+		amount: 130,
+		expenseDescription: "Lunch",
+		expenseCategory: "Food",
+		expenseType: "Debit",
+		date: {
+			day: "29",
+			month: "01",
+			year: "2025",
+		},
+		// dateTimestamp: number,
+		// createdAt: string,
+		// updatedAt: string,
+		recurring: true,
+		// frequency: string | null,
+	},
+	{
+		id: 3,
+		amount: 110,
+		expenseDescription: "Dinner",
+		expenseCategory: "Food",
+		expenseType: "Debit",
+		date: {
+			day: "29",
+			month: "01",
+			year: "2025",
+		},
+		// dateTimestamp: number,
+		// createdAt: string,
+		// updatedAt: string,
+		recurring: true,
+		// frequency: string | null,
+	},
+	{
+		id: 4,
+		amount: 5000,
+		expenseDescription: "Room Rent",
+		expenseCategory: "Rent",
+		expenseType: "Debit",
+		date: {
+			day: "10",
+			month: "02",
+			year: "2025",
+		},
+		// dateTimestamp: number,
+		// createdAt: string,
+		// updatedAt: string,
+		recurring: true,
+		// frequency: string | null,
+	},
+	{
+		id: 5,
+		amount: 50000,
+		expenseDescription: "Salary",
+		expenseCategory: "Salary",
+		expenseType: "Credit",
+		date: {
+			day: "10",
+			month: "02",
+			year: "2025",
+		},
+		// dateTimestamp: number,
+		// createdAt: string,
+		// updatedAt: string,
+		recurring: true,
+		// frequency: string | null,
+	},
+	{
+		id: 6,
+		amount: 500,
+		expenseDescription: "Metro Card Recharge",
+		expenseCategory: "Travel",
+		expenseType: "Debit",
+		date: {
+			day: "05",
+			month: "02",
+			year: "2025",
+		},
+		// dateTimestamp: number,
+		// createdAt: string,
+		// updatedAt: string,
+		recurring: true,
+		// frequency: string | null,
 	},
 ]);
-
-/* data structure of expense object
-{
-  id: string,             // Unique identifier for the transaction (UUID, or auto-generated)
-  type: "income" | "expense",   // Type of transaction (income or expense)
-  amount: number,         // The monetary value of the transaction
-  category: string,       // Category of the expense (e.g., "Food", "Rent", "Transport")
-  description: string,    // Optional: A brief description of the transaction (e.g., "Lunch", "Electric bill")
-  date: string,           // Date of the transaction in ISO 8601 format ("YYYY-MM-DD")
-  dateTimestamp: number,  // Timestamp of the transaction for sorting/filtering (UNIX timestamp in milliseconds)
-  createdAt: string,      // The creation date of the transaction in ISO 8601 format
-  updatedAt: string,      // The date when the transaction was last updated in ISO 8601 format
-  recurring: boolean,     // Optional: If the transaction is recurring (e.g., monthly rent, subscription)
-  frequency: string | null, // Optional: Frequency of recurrence ("monthly", "weekly", etc.) if applicable
-}
-*/

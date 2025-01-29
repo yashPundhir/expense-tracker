@@ -1,7 +1,11 @@
-// import React from "react";
+import Layout from "@/components/dashboardComponents/Layout";
 
 const DashboardPage = () => {
-	return <div className="">DashboardPage</div>;
+	return (
+		<>
+			<Layout />
+		</>
+	);
 };
 
 export default DashboardPage;
