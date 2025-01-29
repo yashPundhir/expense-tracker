@@ -14,7 +14,7 @@ const Footer = () => {
 
 	return (
 		<footer className="text-gray-400 bg-foreground body-font">
-			<div className="container p-3 mx-auto flex items-center sm:flex-row flex-col">
+			<div className="container px-3 py-2 mx-auto flex items-center sm:flex-row flex-col">
 				<a className="flex title-font font-medium items-center md:justify-start justify-center text-white dark:text-zinc-900">
 					<img
 						src={theme === "dark" ? logoLight : logoDark}

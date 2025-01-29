@@ -20,8 +20,8 @@ const ThemeToggler = () => {
 
 	return (
 		<div>
-			<label className="switch rounded-full ring-1 ring-zinc-200 dark:ring-zinc-700 shadow-md shadow-zinc-300 dark:shadow-zinc-700">
-				<input type="checkbox" onChange={handleThemeToggle} />
+			<label className="switch rounded-full ring-1 ring-zinc-300 dark:ring-zinc-700 shadow-md shadow-zinc-300 dark:shadow-zinc-700">
+				<input type="checkbox" onChange={handleThemeToggle} defaultChecked />
 				<span className="slider"></span>
 			</label>
 		</div>
