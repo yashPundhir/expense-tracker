@@ -1,34 +1,38 @@
-// import React from "react";
+import { Link } from "react-router-dom";
+
+import { useAtomValue } from "jotai";
+
+import { themeAtom } from "@/atoms/theme/store";
+
+import { socialLinks } from "@/constants/generalConstants";
+
+import logoDark from "@/assets/generalAssets/logoDark.svg";
+import logoLight from "@/assets/generalAssets/logoLight.svg";
 
 const Footer = () => {
+	const theme = useAtomValue(themeAtom);
+
 	return (
 		<footer className="text-gray-400 bg-foreground body-font">
-			<div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-				<a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						stroke="currentColor"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth="2"
-						className="w-10 h-10 text-white p-2 bg-green-500 rounded-full"
-						viewBox="0 0 24 24"
-					>
-						<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-					</svg>
-					<span className="ml-3 text-xl">Tailblocks</span>
+			<div className="container p-3 mx-auto flex items-center sm:flex-row flex-col">
+				<a className="flex title-font font-medium items-center md:justify-start justify-center text-white dark:text-zinc-900">
+					<img
+						src={theme === "dark" ? logoLight : logoDark}
+						alt="logo"
+						className="w-[35px]"
+					/>
+					<span className="ml-2 text-xl">Expense Tracker</span>
 				</a>
-				<p className="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
-					© 2020 Tailblocks —
-					<a
-						href="https://twitter.com/knyttneve"
-						className="text-gray-500 ml-1"
+				<p className="text-sm text-gray-300 dark:text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-500 sm:dark:border-gray-400 sm:py-2 sm:mt-0 mt-4">
+					© {new Date().getFullYear()} Expense Tracker —
+					<Link
+						to={socialLinks[0].link}
+						className="text-gray-300 dark:text-gray-700 ml-1"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						@knyttneve
-					</a>
+						@yashPundhir
+					</Link>
 				</p>
 				<span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
 					<a className="text-gray-400">
