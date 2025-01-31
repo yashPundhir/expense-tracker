@@ -11,7 +11,7 @@ import {
 
 import App from "./App.jsx";
 
-import DashboardPage from "./pages/DashboardPage.jsx";
+import { DashboardPage, TransactionFormPage } from "./pages/";
 
 import "./index.css";
 
@@ -19,6 +19,7 @@ const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<App />}>
 			<Route path="" element={<DashboardPage />} />
+			<Route path="addTransaction" element={<TransactionFormPage />} />
 			{/* <Route path="about" element={<About />} /> */}
 			{/* <Route path="contact" element={<Contact />} /> */}
 			{/* <Route path="user/:userid" element={<User />} /> */}
