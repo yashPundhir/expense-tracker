@@ -13,21 +13,21 @@ const Footer = () => {
 	const theme = useAtomValue(themeAtom);
 
 	return (
-		<footer className="text-gray-400 bg-foreground body-font">
+		<footer className="text-gray-400 bg-background body-font border-t dark:border-zinc-700 border-zinc-300">
 			<div className="container px-3 py-2 mx-auto flex items-center sm:flex-row flex-col">
-				<a className="flex title-font font-medium items-center md:justify-start justify-center text-white dark:text-zinc-900">
+				<a className="flex title-font font-medium items-center md:justify-start justify-center dark:text-white text-zinc-900">
 					<img
-						src={theme === "dark" ? logoLight : logoDark}
+						src={theme === "dark" ? logoDark : logoLight}
 						alt="logo"
 						className="w-[35px]"
 					/>
 					<span className="ml-2 text-xl">Expense Tracker</span>
 				</a>
-				<p className="text-sm text-gray-300 dark:text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-500 sm:dark:border-gray-400 sm:py-2 sm:mt-0 mt-4">
+				<p className="text-sm dark:text-gray-300 text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:dark:border-gray-500 sm:border-gray-400 sm:py-2 sm:mt-0 mt-4">
 					© {new Date().getFullYear()} Expense Tracker —
 					<Link
 						to={socialLinks[0].link}
-						className="text-gray-300 dark:text-gray-700 ml-1"
+						className="dark:text-gray-300 text-gray-700 ml-1"
 						target="_blank"
 						rel="noopener noreferrer"
 					>

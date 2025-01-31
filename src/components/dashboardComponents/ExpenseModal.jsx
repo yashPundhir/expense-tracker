@@ -14,7 +14,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-const AddExpenseModal = () => {
+const ExpenseModal = () => {
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
@@ -25,7 +25,9 @@ const AddExpenseModal = () => {
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>Add New Expense</AlertDialogTitle>
-					<AlertDialogDescription>Form Goes Here</AlertDialogDescription>
+					<AlertDialogDescription>
+						<div className="overflow-y-auto h-[300px]">Lorem, ipsum.</div>
+					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<AlertDialogFooter>
 					<AlertDialogCancel>Cancel</AlertDialogCancel>
@@ -36,4 +38,4 @@ const AddExpenseModal = () => {
 	);
 };
 
-export default AddExpenseModal;
+export default ExpenseModal;
