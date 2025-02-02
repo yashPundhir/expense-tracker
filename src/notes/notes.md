@@ -19,3 +19,4 @@ then follow the usual steps from the install guide.
 - [Shadcn install another guide](https://kizito917.hashnode.dev/how-to-setup-shadcnui-in-a-react-application-without-typescript) => `better`
 
 - [React Router Dom Loaders](https://dev.to/shaancodes/a-brief-intro-about-loaders-in-react-router-54d)
+- [Shadcn Forms](https://ui.shadcn.com/docs/components/form) => `Best resource for Forms`
