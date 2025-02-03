@@ -20,3 +20,5 @@ then follow the usual steps from the install guide.
 
 - [React Router Dom Loaders](https://dev.to/shaancodes/a-brief-intro-about-loaders-in-react-router-54d)
 - [Shadcn Forms](https://ui.shadcn.com/docs/components/form) => `Best resource for Forms`
+- [Component Land](https://componentland.com/) => `Tailwind Components`
+- [Readymade UI](https://readymadeui.com/) => `Tailwind Components`
