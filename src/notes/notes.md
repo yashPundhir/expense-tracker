@@ -22,3 +22,4 @@ then follow the usual steps from the install guide.
 - [Shadcn Forms](https://ui.shadcn.com/docs/components/form) => `Best resource for Forms`
 - [Component Land](https://componentland.com/) => `Tailwind Components`
 - [Readymade UI](https://readymadeui.com/) => `Tailwind Components`
+- [Lucide Icons](https://lucide.dev/) => `Good Resource of Icons`
