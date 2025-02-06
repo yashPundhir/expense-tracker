@@ -23,3 +23,4 @@ then follow the usual steps from the install guide.
 - [Component Land](https://componentland.com/) => `Tailwind Components`
 - [Readymade UI](https://readymadeui.com/) => `Tailwind Components`
 - [Lucide Icons](https://lucide.dev/) => `Good Resource of Icons`
+- [21st dev](https://21st.dev/?tab=components&sort=recommended) => `Component Library`
