@@ -25,3 +25,4 @@ then follow the usual steps from the install guide.
 - [Lucide Icons](https://lucide.dev/) => `Good Resource of Icons`
 - [21st dev](https://21st.dev/?tab=components&sort=recommended) => `Component Library`
 - [Mantine UI](https://mantine.dev/) => `Component Library with in-built hooks`
+- [Magic UI](https://magicui.design/) => `Beautiful Design Components`
