@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { expenseFormSchema } from "@/models/expenseFormSchema";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select"; // For the expenseType enum
@@ -13,7 +16,6 @@ import {
 	FormLabel,
 	FormMessage,
 } from "@/components/ui/form";
-import { expenseFormSchema } from "@/models/expenseFormSchema";
 
 const TransactionForm = () => {
 	const form = useForm({

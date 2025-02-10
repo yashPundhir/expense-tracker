@@ -10,5 +10,6 @@ export const expenseFormSchema = z.object({
 		}),
 	}),
 	recurring: z.boolean(),
-	expenseDate: z.date(),
+	// expenseDate: z.date(),
+	expenseDate: z.coerce.date(),
 });
