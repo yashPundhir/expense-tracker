@@ -1,0 +1,42 @@
+export const transactionFormConstants = [
+	{
+		id: 1,
+		fieldName: "amount",
+		fieldLabel: "Expense Amount",
+		fieldPlaceholder: "Enter amount",
+		fieldType: "number",
+		fieldDescription: "Enter the amount for the expense.",
+	},
+	{
+		id: 2,
+		fieldName: "description",
+		fieldLabel: "Expense Description",
+		fieldPlaceholder: "Enter Description",
+		fieldType: "text",
+		fieldDescription: "Details of the expense.",
+	},
+	{
+		id: 3,
+		fieldName: "category",
+		fieldLabel: "Expense Category",
+		fieldPlaceholder: "Enter Category",
+		fieldType: "text",
+		fieldDescription: "Specify the category for the expense.",
+	},
+	{
+		id: 4,
+		fieldName: "type",
+		fieldLabel: "Expense Type",
+		fieldPlaceholder: "Enter Category",
+		fieldType: "text",
+		fieldDescription: "Select whether it's a debit or credit expense.",
+	},
+	{
+		id: 5,
+		fieldName: "type",
+		fieldLabel: "Expense Type",
+		fieldPlaceholder: "Enter Category",
+		fieldType: "text",
+		fieldDescription: "Specify the category for the expense.",
+	},
+];
