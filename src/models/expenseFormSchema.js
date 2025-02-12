@@ -20,7 +20,7 @@ export const transactionFormSchema = z.object({
 			invalid_type_error: "Description must be a string",
 		})
 		.min(1, "Category is required"),
-	expenseType: z.enum(["debit", "credit"], {
+	expenseType: z.enum(["Debit", "Credit"], {
 		errorMap: () => ({
 			message: "Expense type must be either debit or credit",
 		}),

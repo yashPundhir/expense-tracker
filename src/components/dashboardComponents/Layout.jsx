@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { AccountSummary, Passbook, AddExpense } from "./";
+import { AccountSummary, Passbook, AddTransaction } from "./";
 
 import DashoardShimmer from "../shimmerComponents/DashoardShimmer";
 
@@ -18,7 +18,7 @@ const Layout = () => {
 			{isDataLoaded ? (
 				<>
 					<AccountSummary />
-					<AddExpense />
+					<AddTransaction />
 					<Passbook />
 				</>
 			) : (
