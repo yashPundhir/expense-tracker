@@ -9,15 +9,16 @@ export const useExpenseCalculations = () => {
 
 	const expenses = useAtomValue(expenseAtom);
 
-	expenses.forEach((expense) => {
-		if (expense.expenseType === "Debit") {
-			expenseTotal = expenseTotal - expense.amount;
-			expenseDebitTotal = expenseDebitTotal + expense.amount;
-		} else if (expense.expenseType === "Credit") {
-			expenseTotal = expenseTotal + expense.amount;
-			expenseCreditTotal = expenseCreditTotal + expense.amount;
-		}
-	});
+	expenses.length > 0 &&
+		expenses.forEach((expense) => {
+			if (expense.expenseType === "Debit") {
+				expenseTotal = expenseTotal - expense.amount;
+				expenseDebitTotal = expenseDebitTotal + expense.amount;
+			} else if (expense.expenseType === "Credit") {
+				expenseTotal = expenseTotal + expense.amount;
+				expenseCreditTotal = expenseCreditTotal + expense.amount;
+			}
+		});
 
 	return { expenseTotal, expenseDebitTotal, expenseCreditTotal };
 };

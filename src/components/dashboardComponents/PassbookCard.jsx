@@ -3,7 +3,7 @@ import { inrRed, inrGreen, plus, minus } from "@/assets/generalAssets";
 const PassbookCard = ({ expense }) => {
 	return (
 		<div
-			className={`w-[500px] px-6 py-2.5 bg-background ring-1 ring-zinc-400 dark:ring-zinc-600 rounded-lg ${
+			className={`w-[450px] px-6 py-2.5 bg-background ring-1 ring-zinc-400 dark:ring-zinc-600 rounded-lg ${
 				expense.expenseType === "Debit"
 					? "hover:ring-[#E71C23] dark:hover:ring-[#E71C23]"
 					: "hover:ring-green-400 dark:hover:ring-[#43BE31]"
@@ -38,7 +38,8 @@ const PassbookCard = ({ expense }) => {
 				</div>
 				<div className="w-full flex flex-row justify-between items-center gap-20">
 					<span className="text-[14px] text-zinc-700 dark:text-zinc-400">
-						{expense.date.day}-{expense.date.month}-{expense.date.year}
+						{expense.expenseDate.weekDay} {expense.expenseDate.day}{" "}
+						{expense.expenseDate.month} {expense.expenseDate.year}
 					</span>
 					<span className="text-[20px] font-semibold">
 						&ldquo;{expense.expenseCategory}&rdquo;

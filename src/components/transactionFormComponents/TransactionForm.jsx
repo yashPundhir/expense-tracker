@@ -1,172 +1,125 @@
+import { useNavigate } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
+
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { useSetAtom } from "jotai";
+
+import { toast } from "sonner";
+
+import { transactionFormSchema } from "@/models/expenseFormSchema";
+
+import { expenseAtom } from "@/atoms/expenses/store";
+
+import { CheckboxField, DatePicker, InputField, SelectField } from ".";
+
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select"; // For the expenseType enum
-import { Checkbox } from "@/components/ui/checkbox"; // For the recurring boolean
-import {
-	Form,
-	FormControl,
-	FormDescription,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from "@/components/ui/form";
-import { expenseFormSchema } from "@/models/expenseFormSchema";
+
+import { Form } from "@/components/ui/form";
+
+import { Toaster } from "@/components/ui/sonner";
+
+import { transactionFormConstants } from "@/constants/transactionFormConstants";
+
+import { CircleX, CircleCheckBig } from "lucide-react";
 
 const TransactionForm = () => {
+	const navigate = useNavigate();
+
+	const setExpense = useSetAtom(expenseAtom);
+
 	const form = useForm({
-		resolver: zodResolver(expenseFormSchema),
+		resolver: zodResolver(transactionFormSchema),
 		defaultValues: {
-			amount: 0,
+			amount: "",
 			expenseDescription: "",
 			expenseCategory: "",
-			expenseType: "debit", // Default to 'debit'
+			expenseType: "",
 			recurring: false,
-			expenseDate: new Date(),
+			expenseDate: "",
 		},
 	});
 
+	const getCustomFormFields = (formItem, form) => {
+		if (formItem.id < 4) {
+			return <InputField key={formItem.id} form={form} item={formItem} />;
+		} else if (formItem.id === 4) {
+			return <SelectField key={formItem.id} form={form} item={formItem} />;
+		} else if (formItem.id === 5) {
+			return <CheckboxField key={formItem.id} form={form} item={formItem} />;
+		} else if (formItem.id === 6) {
+			return <DatePicker key={formItem.id} form={form} item={formItem} />;
+		}
+	};
+
 	const onSubmit = (data) => {
-		console.log(data); // Handle the form submission
+		try {
+			toast.success("Transaction Added Successfully", {
+				// description: "Entering The Application...",
+				duration: 2500,
+				unstyled: false,
+				classNames: {
+					toast: "ring-1 ring-green-500",
+					title: "text-green-500 text-lg",
+					icon: "mr-2",
+				},
+
+				icon: <CircleCheckBig color="#45ce30" />,
+			});
+
+			const formattedDateArray = data.expenseDate
+				.toString()
+				.split(" ")
+				.slice(0, 4);
+
+			console.log(formattedDateArray);
+
+			setExpense((expenses) => [
+				...expenses,
+				{
+					...data,
+					expenseDate: {
+						weekDay: formattedDateArray[0],
+						day: formattedDateArray[2],
+						month: formattedDateArray[1],
+						year: formattedDateArray[3],
+					},
+				},
+			]);
+
+			setTimeout(() => {
+				navigate("/");
+			}, 2700);
+		} catch (error) {
+			console.error("Form submission error", error);
+			toast.error("Failed to submit the form. Please try again.", {
+				// description: "Try Again with Correct Credentials",
+				duration: 4000,
+				unstyled: false,
+				classNames: {
+					toast: "ring-1 ring-red-500",
+					title: "text-red-500 text-lg",
+					icon: "mr-2",
+				},
+
+				icon: <CircleX color="#e71c23" />,
+			});
+		}
 	};
 
 	return (
 		<section className="w-full px-5 flex flex-col justify-center items-center gap-5 border-0">
+			<Toaster />
 			<h1 className="text-[22px] font-semibold">Add a New Transaction</h1>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="flex flex-row flex-wrap justify-center items-center gap-10 "
 				>
-					{/* Amount Field */}
-					<FormField
-						control={form.control}
-						name="amount"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Amount</FormLabel>
-								<FormControl>
-									<Input
-										type="number"
-										placeholder="Enter amount"
-										{...field}
-										value={field.value ?? ""}
-										onChange={(e) =>
-											field.onChange(
-												e.target.value ? Number(e.target.value) : ""
-											)
-										}
-									/>
-								</FormControl>
-								<FormDescription>
-									Enter the amount for the expense.
-								</FormDescription>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					{/* Expense Description Field */}
-					<FormField
-						control={form.control}
-						name="expenseDescription"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Description</FormLabel>
-								<FormControl>
-									<Input placeholder="Enter description" {...field} />
-								</FormControl>
-								<FormDescription>Describe the expense.</FormDescription>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					{/* Expense Category Field */}
-					<FormField
-						control={form.control}
-						name="expenseCategory"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Category</FormLabel>
-								<FormControl>
-									<Input placeholder="Enter category" {...field} />
-								</FormControl>
-								<FormDescription>
-									Specify the category for the expense.
-								</FormDescription>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					{/* Expense Type (Enum) Field */}
-					<FormField
-						control={form.control}
-						name="expenseType"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Expense Type</FormLabel>
-								<FormControl>
-									<Select {...field}>
-										<option value="debit">Debit</option>
-										<option value="credit">Credit</option>
-									</Select>
-								</FormControl>
-								<FormDescription>
-									Select whether it&apos;s a debit or credit expense.
-								</FormDescription>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					{/* Recurring (Boolean) Field */}
-					<FormField
-						control={form.control}
-						name="recurring"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Recurring?</FormLabel>
-								<FormControl>
-									<Checkbox {...field} />
-								</FormControl>
-								<FormDescription>
-									Check if the expense is recurring.
-								</FormDescription>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					{/* Expense Date Field */}
-					<FormField
-						control={form.control}
-						name="expenseDate"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Expense Date</FormLabel>
-								<FormControl>
-									<Input
-										type="date"
-										{...field}
-										value={
-											field.value
-												? new Date(field.value).toISOString().split("T")[0]
-												: ""
-										}
-										onChange={(e) => field.onChange(new Date(e.target.value))}
-									/>
-								</FormControl>
-								<FormDescription>
-									Select the date of the expense.
-								</FormDescription>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
+					{transactionFormConstants.map((formItem) =>
+						getCustomFormFields(formItem, form)
+					)}
 
 					<Button type="submit">Submit</Button>
 				</form>
