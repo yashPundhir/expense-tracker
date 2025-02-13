@@ -12,7 +12,7 @@ const AccountSummary = () => {
 			<div className="flex flex-row justify-start items-center gap-1">
 				<span className="text-[30px] font-normal">Total:</span>
 				<span className="flex flex-row justify-center items-center">
-					{expenseTotal > 0 && (
+					{Math.abs(expenseTotal) > 0 && (
 						<img
 							src={expenseTotal > 0 ? plus : minus}
 							alt="arithmetic-icon"

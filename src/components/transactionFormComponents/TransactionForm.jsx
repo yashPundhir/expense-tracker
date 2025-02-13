@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import { nanoid } from "nanoid";
+
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -73,18 +75,18 @@ const TransactionForm = () => {
 				.split(" ")
 				.slice(0, 4);
 
-			console.log(formattedDateArray);
-
 			setExpense((expenses) => [
 				...expenses,
 				{
 					...data,
+					expenseDateObj: data.expenseDate,
 					expenseDate: {
 						weekDay: formattedDateArray[0],
 						day: formattedDateArray[2],
 						month: formattedDateArray[1],
 						year: formattedDateArray[3],
 					},
+					id: nanoid(),
 				},
 			]);
 
