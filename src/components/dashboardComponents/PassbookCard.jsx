@@ -16,7 +16,11 @@ import { deleteTransactionModal } from "@/constants/generalConstants";
 
 import { inrRed, inrGreen, plus, minus } from "@/assets/generalAssets";
 
-import { SquarePen as EditIcon, Trash2 as DeleteIcon } from "lucide-react";
+import {
+	SquarePen as EditIcon,
+	Trash2 as DeleteIcon,
+	CircleCheckBig,
+} from "lucide-react";
 
 const PassbookCard = ({ expense }) => {
 	const [expenses, setExpenses] = useAtom(expenseAtom);
@@ -30,7 +34,17 @@ const PassbookCard = ({ expense }) => {
 
 		setExpenses(expenses.filter((expense) => expense.id !== currentId));
 
-		toast("Event has been created.");
+		toast.error("Transaction Has Been Deleted", {
+			duration: 2500,
+			unstyled: false,
+			classNames: {
+				toast: "ring-1 ring-red-500",
+				title: "text-red-500 text-lg",
+				icon: "mr-2",
+			},
+
+			icon: <CircleCheckBig color="#ef4444" />,
+		});
 	};
 
 	return (
