@@ -8,3 +8,8 @@ export const deleteTransactionModal = {
 	triggerBtnClass:
 		"border-2 border-zinc-400 dark:border-zinc-600 hover:border-red-400 hover:dark:border-red-600 hover:bg-background duration-500 ease-in-out",
 };
+
+export const editTransactionModal = {
+	triggerBtnClass:
+		"border-2 border-zinc-400 dark:border-zinc-600 hover:border-green-400 hover:dark:border-green-600 hover:bg-background duration-500 ease-in-out",
+};
