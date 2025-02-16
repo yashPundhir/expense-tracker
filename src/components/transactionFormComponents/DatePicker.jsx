@@ -23,7 +23,7 @@ import { Button } from "@/components/ui/button";
 
 import { Calendar as CalendarIcon } from "lucide-react";
 
-const DatePicker = ({ form, item, edit = false }) => {
+const DatePicker = ({ form, item }) => {
 	// console.log(form);
 	return (
 		<FormField
