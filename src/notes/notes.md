@@ -26,3 +26,4 @@ then follow the usual steps from the install guide.
 - [21st dev](https://21st.dev/?tab=components&sort=recommended) => `Component Library`
 - [Mantine UI](https://mantine.dev/) => `Component Library with in-built hooks`
 - [Magic UI](https://magicui.design/) => `Beautiful Design Components`
+- [encrypt and decrypt using crypto](https://medium.com/@tony.infisical/guide-to-nodes-crypto-module-for-encryption-decryption-65c077176980)
