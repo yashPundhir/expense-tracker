@@ -27,3 +27,4 @@ then follow the usual steps from the install guide.
 - [Mantine UI](https://mantine.dev/) => `Component Library with in-built hooks`
 - [Magic UI](https://magicui.design/) => `Beautiful Design Components`
 - [encrypt and decrypt using crypto](https://medium.com/@tony.infisical/guide-to-nodes-crypto-module-for-encryption-decryption-65c077176980)
+- [encrypt and decrypt using crypto](https://www.tatvasoft.com/outsourcing/2024/01/nodejs-cryptography.html)
