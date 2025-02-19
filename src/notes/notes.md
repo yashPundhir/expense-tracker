@@ -28,3 +28,4 @@ then follow the usual steps from the install guide.
 - [Magic UI](https://magicui.design/) => `Beautiful Design Components`
 - [encrypt and decrypt using crypto](https://medium.com/@tony.infisical/guide-to-nodes-crypto-module-for-encryption-decryption-65c077176980)
 - [encrypt and decrypt using crypto](https://www.tatvasoft.com/outsourcing/2024/01/nodejs-cryptography.html)
+- [encrypt and decrypt using crypto](https://dev.to/jobizil/encrypt-and-decrypt-data-in-nodejs-using-aes-256-cbc-2l6d)
