@@ -6,20 +6,25 @@ import { toast } from "sonner";
 
 import { expenseAtom } from "@/atoms/expenses/store";
 
-import DeleteActionModal from "../generalComponents/DeleteActionModal";
+import { EditTransactionModal } from ".";
 
-import { Button } from "@/components/ui/button";
+import { DeleteActionModal } from "../generalComponents";
 
 import { Toaster } from "@/components/ui/sonner";
 
-import { deleteTransactionModal } from "@/constants/generalConstants";
+import { Button } from "../ui/button";
+
+import {
+	deleteTransactionModal,
+	editTransactionModal,
+} from "@/constants/generalConstants";
 
 import { inrRed, inrGreen, plus, minus } from "@/assets/generalAssets";
 
 import {
-	SquarePen as EditIcon,
-	Trash2 as DeleteIcon,
 	CircleCheckBig,
+	Trash2 as DeleteIcon,
+	SquarePen as EditIcon,
 } from "lucide-react";
 
 const PassbookCard = ({ expense }) => {
@@ -96,13 +101,18 @@ const PassbookCard = ({ expense }) => {
 				</div>
 			</div>
 			<div className="absolute flex flex-row justify-center items-center gap-3 -top-6 right-0">
-				<Button
-					variant="outline"
-					size="icon"
-					className="border-2 border-zinc-400 dark:border-zinc-600 hover:border-green-400 hover:dark:border-green-600 hover:bg-background duration-500 ease-in-out"
-				>
-					<EditIcon strokeWidth={1} />
-				</Button>
+				<EditTransactionModal
+					expense={expense}
+					triggerBtn={
+						<Button
+							variant="outline"
+							size="icon"
+							className={editTransactionModal.triggerBtnClass}
+						>
+							<EditIcon strokeWidth={1} />
+						</Button>
+					}
+				/>
 
 				<DeleteActionModal
 					deleteAction={deleteTransaction}

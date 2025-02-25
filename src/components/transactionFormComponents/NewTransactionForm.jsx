@@ -26,7 +26,7 @@ import { transactionFormConstants } from "@/constants/transactionFormConstants";
 
 import { CircleX, CircleCheckBig } from "lucide-react";
 
-const TransactionForm = () => {
+const NewTransactionForm = () => {
 	const navigate = useNavigate();
 
 	const setExpense = useSetAtom(expenseAtom);
@@ -130,4 +130,4 @@ const TransactionForm = () => {
 	);
 };
 
-export default TransactionForm;
+export default NewTransactionForm;
