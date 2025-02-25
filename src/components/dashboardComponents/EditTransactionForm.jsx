@@ -1,14 +1,20 @@
 import { useForm } from "react-hook-form";
 
+import { useSetAtom } from "jotai";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { toast } from "sonner";
 
 import { transactionFormSchema } from "@/models/expenseFormSchema";
 
+import { expenseAtom } from "@/atoms/expenses/store";
+
 import { Form } from "@/components/ui/form";
 
 import { Button } from "../ui/button";
+
+// import { DialogClose } from "@/components/ui/dialog";
 
 import {
 	CheckboxField,
@@ -19,7 +25,11 @@ import {
 
 import { transactionFormConstants } from "@/constants/transactionFormConstants";
 
-const EditTransactionForm = ({ expense }) => {
+import { CircleCheckBig, CircleX } from "lucide-react";
+
+const EditTransactionForm = ({ expense, setOpen }) => {
+	const setExpense = useSetAtom(expenseAtom);
+
 	const form = useForm({
 		resolver: zodResolver(transactionFormSchema),
 		defaultValues: {
@@ -47,11 +57,61 @@ const EditTransactionForm = ({ expense }) => {
 	};
 
 	const onSubmit = (data) => {
-		toast(
-			<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-				<code className="text-white">{JSON.stringify(data, null, 2)}</code>
-			</pre>
-		);
+		try {
+			toast.success("Transaction Updated Successfully", {
+				duration: 2500,
+				unstyled: false,
+				classNames: {
+					toast: "ring-1 ring-green-500",
+					title: "text-green-500 text-lg",
+					icon: "mr-2",
+				},
+
+				icon: <CircleCheckBig color="#45ce30" />,
+			});
+
+			const formattedDateArray = data.expenseDate
+				.toString()
+				.split(" ")
+				.slice(0, 4);
+
+			setExpense((prevExpenses) =>
+				prevExpenses.map((prevExpense) =>
+					prevExpense.id === expense.id
+						? {
+								...data,
+								expenseDateObj: data.expenseDate,
+								expenseDate: {
+									weekDay: formattedDateArray[0],
+									day: formattedDateArray[2],
+									month: formattedDateArray[1],
+									year: formattedDateArray[3],
+								},
+								id: prevExpense.id,
+						  }
+						: {
+								...prevExpenses,
+						  }
+				)
+			);
+
+			setTimeout(() => {
+				setOpen(false);
+			}, 2700);
+		} catch (error) {
+			console.error("Unable to update transaction", error);
+			toast.error("Failed to update the transaction. Please try again.", {
+				duration: 4000,
+				unstyled: false,
+				classNames: {
+					toast: "ring-1 ring-red-500",
+					title: "text-red-500 text-lg",
+					icon: "mr-2",
+				},
+
+				icon: <CircleX color="#e71c23" />,
+			});
+		}
 	};
 
 	return (
@@ -63,8 +123,9 @@ const EditTransactionForm = ({ expense }) => {
 				{transactionFormConstants.map((formItem) =>
 					getCustomFormFields(formItem, form)
 				)}
-
-				<Button type="submit">Submit</Button>
+				{/* <DialogClose asChild> */}
+				<Button type="submit">Save changes</Button>
+				{/* </DialogClose> */}
 			</form>
 		</Form>
 	);

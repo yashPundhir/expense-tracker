@@ -1,8 +1,12 @@
+import { useState } from "react";
+
 import { EditTransactionForm } from ".";
 
 import { Button } from "@/components/ui/button";
+
 import {
 	Dialog,
+	DialogClose,
 	DialogContent,
 	// DialogDescription,
 	DialogFooter,
@@ -12,8 +16,10 @@ import {
 } from "@/components/ui/dialog";
 
 const EditTransactionModal = ({ triggerBtn, expense }) => {
+	const [open, setOpen] = useState(false);
+
 	return (
-		<Dialog>
+		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogTrigger asChild>{triggerBtn}</DialogTrigger>
 			<DialogContent className="max-w-6xl dark:border-zinc-500 border-zinc-700">
 				<DialogHeader>
@@ -25,10 +31,12 @@ const EditTransactionModal = ({ triggerBtn, expense }) => {
 					</DialogDescription> */}
 				</DialogHeader>
 				<div className="text-center">
-					<EditTransactionForm expense={expense} />
+					<EditTransactionForm expense={expense} setOpen={setOpen} />
 				</div>
 				<DialogFooter>
-					<Button type="submit">Save changes</Button>
+					<DialogClose asChild>
+						<Button type="submit">Close</Button>
+					</DialogClose>
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>

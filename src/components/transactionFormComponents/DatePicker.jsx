@@ -24,15 +24,11 @@ import { Button } from "@/components/ui/button";
 import { Calendar as CalendarIcon } from "lucide-react";
 
 const DatePicker = ({ form, item }) => {
-	// console.log(form);
 	return (
 		<FormField
 			control={form.control}
 			name={item.fieldName}
 			render={({ field }) => {
-				console.log(field.value);
-				// console.log(field.onChange);
-				// console.log(field.ref);
 				return (
 					<FormItem className="flex flex-col">
 						<FormLabel>{item.fieldLabel}</FormLabel>
