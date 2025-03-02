@@ -64,7 +64,7 @@ const InputField = ({ form, item }) => {
 			control={form.control}
 			name={item.fieldName}
 			render={({ field }) => (
-				<FormItem>
+				<FormItem className="max-w-[250px] w-full">
 					<FormLabel>{item.fieldLabel}</FormLabel>
 					<FormControl>
 						<Input

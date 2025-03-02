@@ -12,8 +12,8 @@ const Navbar = () => {
 
 	return (
 		<header className="text-foreground bg-background body-font">
-			<div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row justify-between items-center">
-				<a className="flex title-font font-medium items-center mb-4 md:mb-0">
+			<div className="container mx-auto flex flex-wrap p-3 flex-row justify-between items-center">
+				<a href="/" className="flex title-font font-medium items-center mb-0">
 					<img
 						src={theme === "dark" ? logoDark : logoLight}
 						alt="logo"

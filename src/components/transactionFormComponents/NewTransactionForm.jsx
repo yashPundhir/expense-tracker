@@ -111,13 +111,15 @@ const NewTransactionForm = () => {
 	};
 
 	return (
-		<section className="w-full px-5 flex flex-col justify-center items-center gap-5 border-0">
+		<section className="w-full sm:px-5 px-2 flex flex-col justify-center items-center gap-5 border-0">
 			<Toaster />
-			<h1 className="text-[22px] font-semibold">Add a New Transaction</h1>
+			<h1 className="text-[22px] font-semibold text-center">
+				Add a New Transaction
+			</h1>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
-					className="flex flex-row flex-wrap justify-center items-center gap-10 "
+					className="w-full flex flex-row flex-wrap justify-center items-center sm:gap-10 gap-4"
 				>
 					{transactionFormConstants.map((formItem) =>
 						getCustomFormFields(formItem, form)

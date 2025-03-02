@@ -12,7 +12,7 @@ const AddTransaction = () => {
 	};
 
 	return (
-		<section className="w-full flex justify-end pr-5">
+		<section className="w-full flex sm:justify-end justify-center sm:pr-5 pr-0">
 			<Button onClick={handleAddTransaction}>
 				<CirclePlus /> Add Transaction
 			</Button>

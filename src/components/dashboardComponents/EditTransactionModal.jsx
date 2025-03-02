@@ -21,7 +21,7 @@ const EditTransactionModal = ({ triggerBtn, expense }) => {
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogTrigger asChild>{triggerBtn}</DialogTrigger>
-			<DialogContent className="max-w-6xl dark:border-zinc-500 border-zinc-700">
+			<DialogContent className="max-w-6xl dark:border-zinc-500 border-zinc-700 overflow-y-auto sm:h-auto h-[95%]">
 				<DialogHeader>
 					<DialogTitle className="text-2xl text-center">
 						Edit Transaction
@@ -33,7 +33,7 @@ const EditTransactionModal = ({ triggerBtn, expense }) => {
 				<div className="text-center">
 					<EditTransactionForm expense={expense} setOpen={setOpen} />
 				</div>
-				<DialogFooter>
+				<DialogFooter className="flex flex-row justify-end">
 					<DialogClose asChild>
 						<Button type="submit">Close</Button>
 					</DialogClose>
