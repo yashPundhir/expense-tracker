@@ -13,7 +13,7 @@ const Footer = () => {
 	const theme = useAtomValue(themeAtom);
 
 	return (
-		<footer className="text-gray-400 bg-background body-font border-t dark:border-zinc-700 border-zinc-300 fixed bottom-0 left-0 right-0">
+		<footer className="text-gray-400 bg-background body-font border-t dark:border-zinc-700 border-zinc-300">
 			<div className="container px-3 py-2 mx-auto flex items-center sm:flex-row flex-col">
 				<a className="flex title-font font-medium items-center md:justify-start justify-center dark:text-white text-zinc-900">
 					<img

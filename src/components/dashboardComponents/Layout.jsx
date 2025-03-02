@@ -14,7 +14,7 @@ const Layout = () => {
 	}, []);
 
 	return (
-		<main className="container mx-auto px-10 pt-5 pb-8 flex flex-col justify-center items-center gap-5">
+		<main className="container mx-auto sm:px-10 px-3 sm:pt-5 pt-0 sm:pb-8 pb-3 flex flex-col justify-center items-center gap-5">
 			{isDataLoaded ? (
 				<>
 					<AccountSummary />

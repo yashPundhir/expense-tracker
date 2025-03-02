@@ -118,7 +118,7 @@ const EditTransactionForm = ({ expense, setOpen }) => {
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className="flex flex-row flex-wrap justify-center items-center gap-10 "
+				className="flex flex-row flex-wrap justify-center items-center sm:gap-10 gap-4"
 			>
 				{transactionFormConstants.map((formItem) =>
 					getCustomFormFields(formItem, form)

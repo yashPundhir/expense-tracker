@@ -3,7 +3,7 @@ import { NewTransactionForm } from ".";
 
 const Layout = () => {
 	return (
-		<main className="container mx-auto px-10 pt-0 pb-8 flex flex-col justify-center items-center gap-5">
+		<main className="container mx-auto sm:px-10 px-3 pt-0 pb-8 flex flex-col justify-center items-center gap-5">
 			<NewTransactionForm />
 			{/* <TrialForm /> */}
 		</main>
