@@ -10,7 +10,7 @@ const AccountSummary = () => {
 		<section className="w-full sm:px-5 px-0 flex sm:flex-row flex-col justify-between items-center">
 			{/* Total Block */}
 			<div className="w-full flex flex-row sm:justify-start justify-center items-center gap-1">
-				<span className="sm:text-[30px] text-[20px] font-normal">Total:</span>
+				<span className="sm:text-[30px] text-[20px] font-normal">Balance:</span>
 				<div className="flex flex-row justify-center items-center">
 					{Math.abs(expenseTotal) > 0 && (
 						<img
